@@ -13,7 +13,7 @@ class AdvancedCalendar extends HTMLElement {
             firstDayOfWeek: 0,
             showWeekNumbers: true,
             showHolidays: true,
-            countryCode: 'IN',
+            countryCode: 'US',
             language: 'en',
             colors: {
                 primary: '#3498db',
@@ -61,7 +61,11 @@ class AdvancedCalendar extends HTMLElement {
                 category: 'Category',
                 date: 'Date',
                 publicHoliday: 'Public Holiday',
-                weekOf: 'Week of'
+                weekOf: 'Week of',
+                previous: 'Previous',
+                next: 'Next',
+                month: 'Month',
+                day: 'Day'
             },
             hi: {
                 months: ['जनवरी', 'फ़रवरी', 'मार्च', 'अप्रैल', 'मई', 'जून', 'जुलाई', 'अगस्त', 'सितंबर', 'अक्टूबर', 'नवंबर', 'दिसंबर'],
@@ -76,7 +80,11 @@ class AdvancedCalendar extends HTMLElement {
                 category: 'श्रेणी',
                 date: 'तारीख',
                 publicHoliday: 'सार्वजनिक अवकाश',
-                weekOf: 'सप्ताह'
+                weekOf: 'सप्ताह',
+                previous: 'पिछला',
+                next: 'अगला',
+                month: 'महीना',
+                day: 'दिन'
             },
             th: {
                 months: ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'],
@@ -91,7 +99,11 @@ class AdvancedCalendar extends HTMLElement {
                 category: 'หมวดหมู่',
                 date: 'วันที่',
                 publicHoliday: 'วันหยุดราชการ',
-                weekOf: 'สัปดาห์ที่'
+                weekOf: 'สัปดาห์ที่',
+                previous: 'ก่อนหน้า',
+                next: 'ถัดไป',
+                month: 'เดือน',
+                day: 'วัน'
             },
             ms: {
                 months: ['Januari', 'Februari', 'Mac', 'April', 'Mei', 'Jun', 'Julai', 'Ogos', 'September', 'Oktober', 'November', 'Disember'],
@@ -106,7 +118,11 @@ class AdvancedCalendar extends HTMLElement {
                 category: 'Kategori',
                 date: 'Tarikh',
                 publicHoliday: 'Cuti Umum',
-                weekOf: 'Minggu'
+                weekOf: 'Minggu',
+                previous: 'Sebelumnya',
+                next: 'Seterusnya',
+                month: 'Bulan',
+                day: 'Hari'
             },
             ja: {
                 months: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
@@ -121,7 +137,11 @@ class AdvancedCalendar extends HTMLElement {
                 category: 'カテゴリー',
                 date: '日付',
                 publicHoliday: '祝日',
-                weekOf: '週'
+                weekOf: '週',
+                previous: '前',
+                next: '次',
+                month: '月',
+                day: '日'
             },
             zh: {
                 months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
@@ -136,7 +156,11 @@ class AdvancedCalendar extends HTMLElement {
                 category: '类别',
                 date: '日期',
                 publicHoliday: '公共假期',
-                weekOf: '周'
+                weekOf: '周',
+                previous: '上一个',
+                next: '下一个',
+                month: '月',
+                day: '日'
             },
             fr: {
                 months: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
@@ -151,7 +175,11 @@ class AdvancedCalendar extends HTMLElement {
                 category: 'Catégorie',
                 date: 'Date',
                 publicHoliday: 'Jour férié',
-                weekOf: 'Semaine du'
+                weekOf: 'Semaine du',
+                previous: 'Précédent',
+                next: 'Suivant',
+                month: 'Mois',
+                day: 'Jour'
             },
             de: {
                 months: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
@@ -166,7 +194,11 @@ class AdvancedCalendar extends HTMLElement {
                 category: 'Kategorie',
                 date: 'Datum',
                 publicHoliday: 'Feiertag',
-                weekOf: 'Woche vom'
+                weekOf: 'Woche vom',
+                previous: 'Zurück',
+                next: 'Weiter',
+                month: 'Monat',
+                day: 'Tag'
             },
             ru: {
                 months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
@@ -181,7 +213,11 @@ class AdvancedCalendar extends HTMLElement {
                 category: 'Категория',
                 date: 'Дата',
                 publicHoliday: 'Государственный праздник',
-                weekOf: 'Неделя'
+                weekOf: 'Неделя',
+                previous: 'Назад',
+                next: 'Вперед',
+                month: 'Месяц',
+                day: 'День'
             },
             ar: {
                 months: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'],
@@ -196,7 +232,11 @@ class AdvancedCalendar extends HTMLElement {
                 category: 'فئة',
                 date: 'تاريخ',
                 publicHoliday: 'عطلة رسمية',
-                weekOf: 'أسبوع'
+                weekOf: 'أسبوع',
+                previous: 'السابق',
+                next: 'التالي',
+                month: 'شهر',
+                day: 'يوم'
             },
             es: {
                 months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
@@ -211,7 +251,11 @@ class AdvancedCalendar extends HTMLElement {
                 category: 'Categoría',
                 date: 'Fecha',
                 publicHoliday: 'Día festivo',
-                weekOf: 'Semana del'
+                weekOf: 'Semana del',
+                previous: 'Anterior',
+                next: 'Siguiente',
+                month: 'Mes',
+                day: 'Día'
             },
             pt: {
                 months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
@@ -226,7 +270,11 @@ class AdvancedCalendar extends HTMLElement {
                 category: 'Categoria',
                 date: 'Data',
                 publicHoliday: 'Feriado',
-                weekOf: 'Semana de'
+                weekOf: 'Semana de',
+                previous: 'Anterior',
+                next: 'Próximo',
+                month: 'Mês',
+                day: 'Dia'
             },
             it: {
                 months: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
@@ -241,7 +289,11 @@ class AdvancedCalendar extends HTMLElement {
                 category: 'Categoria',
                 date: 'Data',
                 publicHoliday: 'Festività',
-                weekOf: 'Settimana del'
+                weekOf: 'Settimana del',
+                previous: 'Precedente',
+                next: 'Successivo',
+                month: 'Mese',
+                day: 'Giorno'
             },
             ko: {
                 months: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
@@ -256,7 +308,11 @@ class AdvancedCalendar extends HTMLElement {
                 category: '카테고리',
                 date: '날짜',
                 publicHoliday: '공휴일',
-                weekOf: '주'
+                weekOf: '주',
+                previous: '이전',
+                next: '다음',
+                month: '월',
+                day: '일'
             },
             vi: {
                 months: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
@@ -271,7 +327,11 @@ class AdvancedCalendar extends HTMLElement {
                 category: 'Danh mục',
                 date: 'Ngày',
                 publicHoliday: 'Ngày lễ',
-                weekOf: 'Tuần'
+                weekOf: 'Tuần',
+                previous: 'Trước',
+                next: 'Tiếp theo',
+                month: 'Tháng',
+                day: 'Ngày'
             },
             id: {
                 months: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
@@ -286,7 +346,11 @@ class AdvancedCalendar extends HTMLElement {
                 category: 'Kategori',
                 date: 'Tanggal',
                 publicHoliday: 'Hari libur',
-                weekOf: 'Minggu'
+                weekOf: 'Minggu',
+                previous: 'Sebelumnya',
+                next: 'Berikutnya',
+                month: 'Bulan',
+                day: 'Hari'
             }
         };
     }
@@ -299,6 +363,7 @@ class AdvancedCalendar extends HTMLElement {
         if (name === 'events-data' && newValue) {
             try {
                 this.events = JSON.parse(newValue);
+                console.log('✅ Events loaded in custom element:', this.events.length);
                 this.render();
             } catch (e) {
                 console.error('Error parsing events data:', e);
@@ -306,9 +371,10 @@ class AdvancedCalendar extends HTMLElement {
         } else if (name === 'holidays-data' && newValue) {
             try {
                 this.holidays = JSON.parse(newValue);
-                console.log('Holidays loaded in custom element:', this.holidays.length);
+                console.log('✅ Holidays loaded in custom element:', this.holidays.length);
                 if (this.holidays.length > 0) {
-                    console.log('First holiday:', this.holidays[0]);
+                    console.log('First holiday in custom element:', this.holidays[0]);
+                    console.log('Sample holiday dates:', this.holidays.slice(0, 5).map(h => h.date));
                 }
                 this.render();
             } catch (e) {
@@ -320,6 +386,7 @@ class AdvancedCalendar extends HTMLElement {
                 this.options = this.deepMerge(this.options, newOptions);
                 this.viewMode = this.options.viewMode;
                 this.language = this.options.language || 'en';
+                console.log('✅ Calendar options updated - showHolidays:', this.options.showHolidays);
                 this.render();
             } catch (e) {
                 console.error('Error parsing calendar options:', e);
@@ -978,13 +1045,13 @@ class AdvancedCalendar extends HTMLElement {
                     <h2 class="header-title">${this.getHeaderTitle()}</h2>
                     <div class="header-controls">
                         ${navigation.showNavigationButtons ? `
-                            <button class="nav-button" id="prevBtn">◀ ${this.t('previous') || 'Previous'}</button>
+                            <button class="nav-button" id="prevBtn">◀ ${this.t('previous')}</button>
                             ${navigation.showTodayButton ? `<button class="today-button" id="todayBtn">${this.t('today')}</button>` : ''}
-                            <button class="nav-button" id="nextBtn">${this.t('next') || 'Next'} ▶</button>
+                            <button class="nav-button" id="nextBtn">${this.t('next')} ▶</button>
                         ` : ''}
-                        <button class="view-button ${this.viewMode === 'month' ? 'active' : ''}" id="monthViewBtn">${this.t('month') || 'Month'}</button>
+                        <button class="view-button ${this.viewMode === 'month' ? 'active' : ''}" id="monthViewBtn">${this.t('month')}</button>
                         <button class="view-button ${this.viewMode === 'week' ? 'active' : ''}" id="weekViewBtn">${this.t('week')}</button>
-                        <button class="view-button ${this.viewMode === 'day' ? 'active' : ''}" id="dayViewBtn">${this.t('day') || 'Day'}</button>
+                        <button class="view-button ${this.viewMode === 'day' ? 'active' : ''}" id="dayViewBtn">${this.t('day')}</button>
                     </div>
                 </div>
                 <div class="calendar-body">
@@ -1386,18 +1453,37 @@ class AdvancedCalendar extends HTMLElement {
     }
 
     getHolidaysForDate(date) {
-        if (!this.options.showHolidays) return [];
+        if (!this.options.showHolidays) {
+            return [];
+        }
         
-        return this.holidays.filter(holiday => {
-            const holidayDate = new Date(holiday.date);
-            return this.isSameDay(holidayDate, date);
+        if (!this.holidays || this.holidays.length === 0) {
+            return [];
+        }
+        
+        const matchingHolidays = this.holidays.filter(holiday => {
+            if (!holiday.date) {
+                return false;
+            }
+            
+            // Parse the holiday date (format: YYYY-MM-DD)
+            // Add time to avoid timezone issues
+            const holidayDate = new Date(holiday.date + 'T12:00:00');
+            const checkDate = new Date(date);
+            
+            return this.isSameDay(holidayDate, checkDate);
         });
+        
+        return matchingHolidays;
     }
 
     isSameDay(date1, date2) {
-        return date1.getFullYear() === date2.getFullYear() &&
-               date1.getMonth() === date2.getMonth() &&
-               date1.getDate() === date2.getDate();
+        const d1 = new Date(date1);
+        const d2 = new Date(date2);
+        
+        return d1.getFullYear() === d2.getFullYear() &&
+               d1.getMonth() === d2.getMonth() &&
+               d1.getDate() === d2.getDate();
     }
 
     getWeekNumber(date) {
