@@ -61,6 +61,7 @@ class AdvancedCalendar extends HTMLElement {
         } else if (name === 'holidays-data' && newValue) {
             try {
                 this.holidays = JSON.parse(newValue);
+                console.log('Holidays loaded:', this.holidays.length);
                 this.render();
             } catch (e) {
                 console.error('Error parsing holidays data:', e);
@@ -130,6 +131,7 @@ class AdvancedCalendar extends HTMLElement {
                     height: ${layout.height}px;
                     display: flex;
                     flex-direction: column;
+                    position: relative;
                 }
 
                 .calendar-header {
@@ -407,6 +409,7 @@ class AdvancedCalendar extends HTMLElement {
                     border-radius: 12px;
                     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                     transition: all 0.3s ease;
+                    cursor: pointer;
                 }
 
                 .day-event-card:hover {
@@ -468,6 +471,184 @@ class AdvancedCalendar extends HTMLElement {
                     margin-bottom: 20px;
                 }
 
+                /* Event Modal/Popup */
+                .event-modal {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: rgba(0, 0, 0, 0.6);
+                    display: none;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 10000;
+                    animation: fadeIn 0.3s ease;
+                    backdrop-filter: blur(4px);
+                }
+
+                .event-modal.show {
+                    display: flex;
+                }
+
+                @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+
+                @keyframes slideUp {
+                    from { 
+                        opacity: 0;
+                        transform: translateY(30px) scale(0.95);
+                    }
+                    to { 
+                        opacity: 1;
+                        transform: translateY(0) scale(1);
+                    }
+                }
+
+                .modal-content {
+                    background: white;
+                    border-radius: 16px;
+                    max-width: 600px;
+                    width: 90%;
+                    max-height: 80vh;
+                    overflow-y: auto;
+                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+                    animation: slideUp 0.4s ease;
+                    position: relative;
+                }
+
+                .modal-header {
+                    background: linear-gradient(135deg, ${colors.primary}, ${colors.secondary});
+                    color: white;
+                    padding: 24px;
+                    border-radius: 16px 16px 0 0;
+                    position: relative;
+                }
+
+                .modal-close {
+                    position: absolute;
+                    top: 16px;
+                    right: 16px;
+                    background: rgba(255, 255, 255, 0.2);
+                    border: none;
+                    color: white;
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    font-size: 24px;
+                    line-height: 1;
+                    transition: all 0.3s ease;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .modal-close:hover {
+                    background: rgba(255, 255, 255, 0.3);
+                    transform: rotate(90deg);
+                }
+
+                .modal-title {
+                    font-size: ${typography.headerFontSize + 4}px;
+                    font-weight: 700;
+                    margin: 0;
+                    padding-right: 40px;
+                }
+
+                .modal-body {
+                    padding: 24px;
+                }
+
+                .modal-section {
+                    margin-bottom: 20px;
+                }
+
+                .modal-section-title {
+                    font-size: ${typography.eventFontSize}px;
+                    font-weight: 600;
+                    color: ${colors.primary};
+                    margin-bottom: 8px;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+
+                .modal-section-content {
+                    font-size: ${typography.eventFontSize + 1}px;
+                    color: ${colors.text};
+                    line-height: 1.6;
+                }
+
+                .modal-category-badge {
+                    display: inline-block;
+                    background: ${colors.secondary};
+                    color: white;
+                    padding: 8px 16px;
+                    border-radius: 20px;
+                    font-size: ${typography.eventFontSize}px;
+                    font-weight: 500;
+                }
+
+                .modal-time-info {
+                    background: ${colors.hover};
+                    padding: 16px;
+                    border-radius: 8px;
+                    border-left: 4px solid ${colors.primary};
+                }
+
+                /* Rich text styling */
+                .rich-text-content {
+                    line-height: 1.8;
+                }
+
+                .rich-text-content p {
+                    margin-bottom: 12px;
+                }
+
+                .rich-text-content h1,
+                .rich-text-content h2,
+                .rich-text-content h3,
+                .rich-text-content h4,
+                .rich-text-content h5,
+                .rich-text-content h6 {
+                    margin-top: 16px;
+                    margin-bottom: 8px;
+                    font-weight: 600;
+                }
+
+                .rich-text-content ul,
+                .rich-text-content ol {
+                    margin-left: 20px;
+                    margin-bottom: 12px;
+                }
+
+                .rich-text-content li {
+                    margin-bottom: 6px;
+                }
+
+                .rich-text-content strong {
+                    font-weight: 600;
+                }
+
+                .rich-text-content em {
+                    font-style: italic;
+                }
+
+                .rich-text-content a {
+                    color: ${colors.primary};
+                    text-decoration: underline;
+                }
+
+                .rich-text-content blockquote {
+                    border-left: 4px solid ${colors.border};
+                    padding-left: 16px;
+                    margin: 16px 0;
+                    color: #666;
+                }
+
                 /* Responsive Design */
                 @media (max-width: 768px) {
                     .calendar-header {
@@ -500,6 +681,19 @@ class AdvancedCalendar extends HTMLElement {
                         padding: 6px 12px;
                         font-size: 12px;
                     }
+
+                    .modal-content {
+                        width: 95%;
+                        max-height: 90vh;
+                    }
+
+                    .modal-header {
+                        padding: 20px;
+                    }
+
+                    .modal-body {
+                        padding: 20px;
+                    }
                 }
 
                 @media (max-width: 480px) {
@@ -514,6 +708,10 @@ class AdvancedCalendar extends HTMLElement {
                     .day-cell {
                         min-height: 60px;
                         padding: 2px;
+                    }
+
+                    .modal-title {
+                        font-size: ${typography.headerFontSize + 2}px;
                     }
                 }
             </style>
@@ -534,6 +732,13 @@ class AdvancedCalendar extends HTMLElement {
                 </div>
                 <div class="calendar-body">
                     ${this.renderView()}
+                </div>
+            </div>
+
+            <!-- Event Modal -->
+            <div class="event-modal" id="eventModal">
+                <div class="modal-content" id="modalContent">
+                    <!-- Content will be populated dynamically -->
                 </div>
             </div>
         `;
@@ -572,10 +777,8 @@ class AdvancedCalendar extends HTMLElement {
         const year = this.currentDate.getFullYear();
         const month = this.currentDate.getMonth();
         
-        // Use accurate date calculation
         const firstDay = new Date(year, month, 1);
         const lastDay = new Date(year, month + 1, 0);
-        const prevMonthLastDay = new Date(year, month, 0);
         
         const startDate = new Date(firstDay);
         const dayOfWeek = firstDay.getDay();
@@ -587,21 +790,17 @@ class AdvancedCalendar extends HTMLElement {
 
         let html = '<div class="month-view">';
 
-        // Week number header
         if (this.options.showWeekNumbers) {
             html += '<div class="week-number">Wk</div>';
         }
 
-        // Day headers
         reorderedDays.forEach(day => {
             html += `<div class="day-header">${day}</div>`;
         });
 
-        // Calendar days - render exactly 6 weeks for consistency
         let currentRenderDate = new Date(startDate);
         
         for (let week = 0; week < 6; week++) {
-            // Week number
             if (this.options.showWeekNumbers) {
                 const weekNumber = this.getWeekNumber(currentRenderDate);
                 html += `<div class="week-number">${weekNumber}</div>`;
@@ -661,7 +860,6 @@ class AdvancedCalendar extends HTMLElement {
 
         let html = '<div class="week-view">';
         
-        // Header row
         html += '<div class="time-slot header"></div>';
         days.forEach(day => {
             const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -669,7 +867,6 @@ class AdvancedCalendar extends HTMLElement {
             html += `<div class="day-header" style="${isToday ? 'background: ' + this.options.colors.secondary : ''}">${dayNames[day.getDay()]} ${day.getDate()}</div>`;
         });
 
-        // Time slots
         hours.forEach(hour => {
             const timeString = hour === 0 ? '12 AM' : 
                               hour < 12 ? `${hour} AM` : 
@@ -721,7 +918,6 @@ class AdvancedCalendar extends HTMLElement {
         } else {
             html += '<div class="day-view-events">';
             
-            // Show holidays first
             if (this.options.showHolidays) {
                 dayHolidays.forEach(holiday => {
                     html += `
@@ -735,10 +931,9 @@ class AdvancedCalendar extends HTMLElement {
                 });
             }
             
-            // Show regular events
             dayEvents.forEach(event => {
                 html += `
-                    <div class="day-event-card" style="border-left-color: ${event.color};">
+                    <div class="day-event-card" style="border-left-color: ${event.color};" data-event-id="${event.id}">
                         <div class="event-title">${event.title}</div>
                         ${this.options.display.showEventTime && !event.isAllDay ? 
                             `<div class="event-time">⏰ ${event.startTime} - ${event.endTime}</div>` : 
@@ -746,7 +941,7 @@ class AdvancedCalendar extends HTMLElement {
                         ${this.options.display.showEventCategory ? 
                             `<div class="event-category">${event.category}</div>` : ''}
                         ${event.description ? 
-                            `<div class="event-description">${event.description}</div>` : ''}
+                            `<div class="event-description rich-text-content">${event.description}</div>` : ''}
                     </div>
                 `;
             });
@@ -788,10 +983,114 @@ class AdvancedCalendar extends HTMLElement {
                 const eventId = item.dataset.eventId;
                 const event = this.events.find(e => e.id === eventId);
                 if (event) {
-                    this.showEventDetails(event);
+                    this.showEventModal(event);
                 }
             });
         });
+
+        // Day view event cards
+        this.shadowRoot.querySelectorAll('.day-event-card').forEach(card => {
+            if (card.dataset.eventId) {
+                card.addEventListener('click', () => {
+                    const eventId = card.dataset.eventId;
+                    const event = this.events.find(e => e.id === eventId);
+                    if (event) {
+                        this.showEventModal(event);
+                    }
+                });
+            }
+        });
+
+        // Modal close
+        const modal = this.shadowRoot.getElementById('eventModal');
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    this.closeEventModal();
+                }
+            });
+        }
+    }
+
+    showEventModal(event) {
+        const modal = this.shadowRoot.getElementById('eventModal');
+        const modalContent = this.shadowRoot.getElementById('modalContent');
+        
+        const timeInfo = event.isAllDay ? 
+            '🌍 All Day Event' : 
+            `⏰ ${event.startTime} - ${event.endTime}`;
+        
+        modalContent.innerHTML = `
+            <div class="modal-header" style="background: linear-gradient(135deg, ${event.color}, ${this.adjustColor(event.color, -20)});">
+                <button class="modal-close" id="modalCloseBtn">&times;</button>
+                <h2 class="modal-title">${event.title}</h2>
+            </div>
+            <div class="modal-body">
+                ${this.options.display.showEventCategory ? `
+                <div class="modal-section">
+                    <div class="modal-category-badge">${event.category}</div>
+                </div>
+                ` : ''}
+                
+                ${this.options.display.showEventTime ? `
+                <div class="modal-section">
+                    <div class="modal-time-info">
+                        <div class="modal-section-title">
+                            ${timeInfo}
+                        </div>
+                    </div>
+                </div>
+                ` : ''}
+                
+                ${event.description ? `
+                <div class="modal-section">
+                    <div class="modal-section-title">
+                        📝 Description
+                    </div>
+                    <div class="modal-section-content rich-text-content">
+                        ${event.description}
+                    </div>
+                </div>
+                ` : ''}
+                
+                <div class="modal-section">
+                    <div class="modal-section-title">
+                        📅 Date
+                    </div>
+                    <div class="modal-section-content">
+                        ${new Date(event.date).toLocaleDateString('en-US', { 
+                            weekday: 'long', 
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric' 
+                        })}
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // Attach close button listener
+        const closeBtn = modalContent.querySelector('#modalCloseBtn');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => this.closeEventModal());
+        }
+        
+        modal.classList.add('show');
+    }
+
+    closeEventModal() {
+        const modal = this.shadowRoot.getElementById('eventModal');
+        modal.classList.remove('show');
+    }
+
+    // Helper to adjust color brightness
+    adjustColor(color, amount) {
+        const clamp = (num) => Math.min(Math.max(num, 0), 255);
+        const num = parseInt(color.replace('#', ''), 16);
+        const r = clamp((num >> 16) + amount);
+        const g = clamp(((num >> 8) & 0x00FF) + amount);
+        const b = clamp((num & 0x0000FF) + amount);
+        return `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')}`;
     }
 
     navigate(direction) {
@@ -842,7 +1141,6 @@ class AdvancedCalendar extends HTMLElement {
                date1.getDate() === date2.getDate();
     }
 
-    // ISO 8601 week number calculation (accurate)
     getWeekNumber(date) {
         const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
         const dayNum = d.getUTCDay() || 7;
@@ -863,7 +1161,6 @@ class AdvancedCalendar extends HTMLElement {
     isEventInHour(event, hour) {
         if (event.isAllDay) return false;
         
-        // Parse time string (e.g., "09:00 AM")
         const timeStr = event.startTime.toUpperCase();
         const [time, period] = timeStr.split(' ');
         const [hours, minutes] = time.split(':').map(Number);
@@ -875,43 +1172,20 @@ class AdvancedCalendar extends HTMLElement {
         return startHour === hour;
     }
 
-    // Moon phase calculation
     getMoonPhase(date) {
-        const year = date.getFullYear();
-        const month = date.getMonth() + 1;
-        const day = date.getDate();
-        
-        // Calculate days since known new moon
         const knownNewMoon = new Date(2000, 0, 6, 18, 14);
         const daysSinceNew = (date - knownNewMoon) / (1000 * 60 * 60 * 24);
         const phase = (daysSinceNew % 29.53059) / 29.53059;
         
-        if (phase < 0.0625) return '🌑'; // New Moon
-        if (phase < 0.1875) return '🌒'; // Waxing Crescent
-        if (phase < 0.3125) return '🌓'; // First Quarter
-        if (phase < 0.4375) return '🌔'; // Waxing Gibbous
-        if (phase < 0.5625) return '🌕'; // Full Moon
-        if (phase < 0.6875) return '🌖'; // Waning Gibbous
-        if (phase < 0.8125) return '🌗'; // Last Quarter
-        if (phase < 0.9375) return '🌘'; // Waning Crescent
-        return '🌑'; // New Moon
-    }
-
-    showEventDetails(event) {
-        const timeInfo = event.isAllDay ? 
-            'All Day Event' : 
-            `${event.startTime} - ${event.endTime}`;
-        
-        const details = `
-📅 ${event.title}
-
-🏷️ Category: ${event.category}
-⏰ ${timeInfo}
-
-${event.description ? '📝 ' + event.description : ''}
-        `.trim();
-        
-        alert(details);
+        if (phase < 0.0625) return '🌑';
+        if (phase < 0.1875) return '🌒';
+        if (phase < 0.3125) return '🌓';
+        if (phase < 0.4375) return '🌔';
+        if (phase < 0.5625) return '🌕';
+        if (phase < 0.6875) return '🌖';
+        if (phase < 0.8125) return '🌗';
+        if (phase < 0.9375) return '🌘';
+        return '🌑';
     }
 }
 
