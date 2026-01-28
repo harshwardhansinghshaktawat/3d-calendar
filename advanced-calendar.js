@@ -7,12 +7,14 @@ class AdvancedCalendar extends HTMLElement {
         this.currentDate = new Date();
         this.selectedDate = null;
         this.viewMode = 'month';
+        this.language = 'en';
         this.options = {
             viewMode: 'month',
             firstDayOfWeek: 0,
             showWeekNumbers: true,
             showHolidays: true,
             countryCode: 'IN',
+            language: 'en',
             colors: {
                 primary: '#3498db',
                 secondary: '#2ecc71',
@@ -43,8 +45,252 @@ class AdvancedCalendar extends HTMLElement {
                 showTodayButton: true
             }
         };
+        
+        // Localization data
+        this.translations = {
+            en: {
+                months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+                daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                today: 'Today',
+                week: 'Wk',
+                allDay: 'All Day Event',
+                noEvents: 'No events scheduled for this day',
+                description: 'Description',
+                category: 'Category',
+                date: 'Date',
+                publicHoliday: 'Public Holiday',
+                weekOf: 'Week of'
+            },
+            hi: {
+                months: ['जनवरी', 'फ़रवरी', 'मार्च', 'अप्रैल', 'मई', 'जून', 'जुलाई', 'अगस्त', 'सितंबर', 'अक्टूबर', 'नवंबर', 'दिसंबर'],
+                monthsShort: ['जन', 'फ़र', 'मार्च', 'अप्रैल', 'मई', 'जून', 'जुलाई', 'अग', 'सित', 'अक्टू', 'नव', 'दिस'],
+                days: ['रविवार', 'सोमवार', 'मंगलवार', 'बुधवार', 'गुरुवार', 'शुक्रवार', 'शनिवार'],
+                daysShort: ['रवि', 'सोम', 'मंगल', 'बुध', 'गुरु', 'शुक्र', 'शनि'],
+                today: 'आज',
+                week: 'सप्ताह',
+                allDay: 'पूरे दिन',
+                noEvents: 'इस दिन के लिए कोई कार्यक्रम निर्धारित नहीं है',
+                description: 'विवरण',
+                category: 'श्रेणी',
+                date: 'तारीख',
+                publicHoliday: 'सार्वजनिक अवकाश',
+                weekOf: 'सप्ताह'
+            },
+            th: {
+                months: ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'],
+                monthsShort: ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'],
+                days: ['วันอาทิตย์', 'วันจันทร์', 'วันอังคาร', 'วันพุธ', 'วันพฤหัสบดี', 'วันศุกร์', 'วันเสาร์'],
+                daysShort: ['อา', 'จ', 'อ', 'พ', 'พฤ', 'ศ', 'ส'],
+                today: 'วันนี้',
+                week: 'สัปดาห์',
+                allDay: 'ทั้งวัน',
+                noEvents: 'ไม่มีกิจกรรมในวันนี้',
+                description: 'รายละเอียด',
+                category: 'หมวดหมู่',
+                date: 'วันที่',
+                publicHoliday: 'วันหยุดราชการ',
+                weekOf: 'สัปดาห์ที่'
+            },
+            ms: {
+                months: ['Januari', 'Februari', 'Mac', 'April', 'Mei', 'Jun', 'Julai', 'Ogos', 'September', 'Oktober', 'November', 'Disember'],
+                monthsShort: ['Jan', 'Feb', 'Mac', 'Apr', 'Mei', 'Jun', 'Jul', 'Ogos', 'Sep', 'Okt', 'Nov', 'Dis'],
+                days: ['Ahad', 'Isnin', 'Selasa', 'Rabu', 'Khamis', 'Jumaat', 'Sabtu'],
+                daysShort: ['Ahd', 'Isn', 'Sel', 'Rab', 'Kha', 'Jum', 'Sab'],
+                today: 'Hari Ini',
+                week: 'Minggu',
+                allDay: 'Sepanjang Hari',
+                noEvents: 'Tiada acara dijadualkan untuk hari ini',
+                description: 'Penerangan',
+                category: 'Kategori',
+                date: 'Tarikh',
+                publicHoliday: 'Cuti Umum',
+                weekOf: 'Minggu'
+            },
+            ja: {
+                months: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+                monthsShort: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+                days: ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'],
+                daysShort: ['日', '月', '火', '水', '木', '金', '土'],
+                today: '今日',
+                week: '週',
+                allDay: '終日',
+                noEvents: 'この日の予定はありません',
+                description: '説明',
+                category: 'カテゴリー',
+                date: '日付',
+                publicHoliday: '祝日',
+                weekOf: '週'
+            },
+            zh: {
+                months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+                monthsShort: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+                days: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+                daysShort: ['日', '一', '二', '三', '四', '五', '六'],
+                today: '今天',
+                week: '周',
+                allDay: '全天',
+                noEvents: '今天没有安排活动',
+                description: '描述',
+                category: '类别',
+                date: '日期',
+                publicHoliday: '公共假期',
+                weekOf: '周'
+            },
+            fr: {
+                months: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+                monthsShort: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'],
+                days: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+                daysShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+                today: 'Aujourd\'hui',
+                week: 'Sem',
+                allDay: 'Toute la journée',
+                noEvents: 'Aucun événement prévu pour ce jour',
+                description: 'Description',
+                category: 'Catégorie',
+                date: 'Date',
+                publicHoliday: 'Jour férié',
+                weekOf: 'Semaine du'
+            },
+            de: {
+                months: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+                monthsShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                days: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+                daysShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                today: 'Heute',
+                week: 'Woche',
+                allDay: 'Ganztägig',
+                noEvents: 'Keine Veranstaltungen für diesen Tag geplant',
+                description: 'Beschreibung',
+                category: 'Kategorie',
+                date: 'Datum',
+                publicHoliday: 'Feiertag',
+                weekOf: 'Woche vom'
+            },
+            ru: {
+                months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+                monthsShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+                days: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
+                daysShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+                today: 'Сегодня',
+                week: 'Нед',
+                allDay: 'Весь день',
+                noEvents: 'На этот день нет запланированных событий',
+                description: 'Описание',
+                category: 'Категория',
+                date: 'Дата',
+                publicHoliday: 'Государственный праздник',
+                weekOf: 'Неделя'
+            },
+            ar: {
+                months: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'],
+                monthsShort: ['ينا', 'فبر', 'مار', 'أبر', 'ماي', 'يون', 'يول', 'أغس', 'سبت', 'أكت', 'نوف', 'ديس'],
+                days: ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+                daysShort: ['أحد', 'إثن', 'ثلا', 'أرب', 'خمي', 'جمع', 'سبت'],
+                today: 'اليوم',
+                week: 'أسبوع',
+                allDay: 'طوال اليوم',
+                noEvents: 'لا توجد أحداث مجدولة لهذا اليوم',
+                description: 'وصف',
+                category: 'فئة',
+                date: 'تاريخ',
+                publicHoliday: 'عطلة رسمية',
+                weekOf: 'أسبوع'
+            },
+            es: {
+                months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                days: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                daysShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'],
+                today: 'Hoy',
+                week: 'Sem',
+                allDay: 'Todo el día',
+                noEvents: 'No hay eventos programados para este día',
+                description: 'Descripción',
+                category: 'Categoría',
+                date: 'Fecha',
+                publicHoliday: 'Día festivo',
+                weekOf: 'Semana del'
+            },
+            pt: {
+                months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                days: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+                daysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
+                today: 'Hoje',
+                week: 'Sem',
+                allDay: 'Dia inteiro',
+                noEvents: 'Nenhum evento agendado para este dia',
+                description: 'Descrição',
+                category: 'Categoria',
+                date: 'Data',
+                publicHoliday: 'Feriado',
+                weekOf: 'Semana de'
+            },
+            it: {
+                months: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
+                monthsShort: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'],
+                days: ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'],
+                daysShort: ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'],
+                today: 'Oggi',
+                week: 'Sett',
+                allDay: 'Tutto il giorno',
+                noEvents: 'Nessun evento programmato per questo giorno',
+                description: 'Descrizione',
+                category: 'Categoria',
+                date: 'Data',
+                publicHoliday: 'Festività',
+                weekOf: 'Settimana del'
+            },
+            ko: {
+                months: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+                monthsShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+                days: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+                daysShort: ['일', '월', '화', '수', '목', '금', '토'],
+                today: '오늘',
+                week: '주',
+                allDay: '종일',
+                noEvents: '이 날짜에 예정된 이벤트가 없습니다',
+                description: '설명',
+                category: '카테고리',
+                date: '날짜',
+                publicHoliday: '공휴일',
+                weekOf: '주'
+            },
+            vi: {
+                months: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
+                monthsShort: ['Th1', 'Th2', 'Th3', 'Th4', 'Th5', 'Th6', 'Th7', 'Th8', 'Th9', 'Th10', 'Th11', 'Th12'],
+                days: ['Chủ nhật', 'Thứ hai', 'Thứ ba', 'Thứ tư', 'Thứ năm', 'Thứ sáu', 'Thứ bảy'],
+                daysShort: ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'],
+                today: 'Hôm nay',
+                week: 'Tuần',
+                allDay: 'Cả ngày',
+                noEvents: 'Không có sự kiện nào được lên lịch cho ngày này',
+                description: 'Mô tả',
+                category: 'Danh mục',
+                date: 'Ngày',
+                publicHoliday: 'Ngày lễ',
+                weekOf: 'Tuần'
+            },
+            id: {
+                months: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+                monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Ags', 'Sep', 'Okt', 'Nov', 'Des'],
+                days: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
+                daysShort: ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
+                today: 'Hari ini',
+                week: 'Minggu',
+                allDay: 'Sepanjang hari',
+                noEvents: 'Tidak ada acara yang dijadwalkan untuk hari ini',
+                description: 'Deskripsi',
+                category: 'Kategori',
+                date: 'Tanggal',
+                publicHoliday: 'Hari libur',
+                weekOf: 'Minggu'
+            }
+        };
     }
-
+    
     static get observedAttributes() {
         return ['events-data', 'holidays-data', 'calendar-options'];
     }
@@ -73,6 +319,7 @@ class AdvancedCalendar extends HTMLElement {
                 const newOptions = JSON.parse(newValue);
                 this.options = this.deepMerge(this.options, newOptions);
                 this.viewMode = this.options.viewMode;
+                this.language = this.options.language || 'en';
                 this.render();
             } catch (e) {
                 console.error('Error parsing calendar options:', e);
@@ -104,13 +351,18 @@ class AdvancedCalendar extends HTMLElement {
     connectedCallback() {
         this.render();
     }
+    
+    t(key) {
+        const lang = this.translations[this.language] || this.translations['en'];
+        return lang[key] || this.translations['en'][key] || key;
+    }
 
     render() {
         const { colors, typography, layout, navigation } = this.options;
         
         this.shadowRoot.innerHTML = `
             <style>
-                @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@300;400;600;700&display=swap');
+                @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@300;400;600;700&family=Noto+Sans:wght@300;400;600;700&display=swap');
                 
                 * {
                     box-sizing: border-box;
@@ -726,13 +978,13 @@ class AdvancedCalendar extends HTMLElement {
                     <h2 class="header-title">${this.getHeaderTitle()}</h2>
                     <div class="header-controls">
                         ${navigation.showNavigationButtons ? `
-                            <button class="nav-button" id="prevBtn">◀ Previous</button>
-                            ${navigation.showTodayButton ? '<button class="today-button" id="todayBtn">Today</button>' : ''}
-                            <button class="nav-button" id="nextBtn">Next ▶</button>
+                            <button class="nav-button" id="prevBtn">◀ ${this.t('previous') || 'Previous'}</button>
+                            ${navigation.showTodayButton ? `<button class="today-button" id="todayBtn">${this.t('today')}</button>` : ''}
+                            <button class="nav-button" id="nextBtn">${this.t('next') || 'Next'} ▶</button>
                         ` : ''}
-                        <button class="view-button ${this.viewMode === 'month' ? 'active' : ''}" id="monthViewBtn">Month</button>
-                        <button class="view-button ${this.viewMode === 'week' ? 'active' : ''}" id="weekViewBtn">Week</button>
-                        <button class="view-button ${this.viewMode === 'day' ? 'active' : ''}" id="dayViewBtn">Day</button>
+                        <button class="view-button ${this.viewMode === 'month' ? 'active' : ''}" id="monthViewBtn">${this.t('month') || 'Month'}</button>
+                        <button class="view-button ${this.viewMode === 'week' ? 'active' : ''}" id="weekViewBtn">${this.t('week')}</button>
+                        <button class="view-button ${this.viewMode === 'day' ? 'active' : ''}" id="dayViewBtn">${this.t('day') || 'Day'}</button>
                     </div>
                 </div>
                 <div class="calendar-body">
@@ -752,9 +1004,8 @@ class AdvancedCalendar extends HTMLElement {
     }
 
     getHeaderTitle() {
-        const months = ['January', 'February', 'March', 'April', 'May', 'June', 
-                       'July', 'August', 'September', 'October', 'November', 'December'];
-        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const months = this.t('months');
+        const days = this.t('days');
         
         if (this.viewMode === 'month') {
             return `${months[this.currentDate.getMonth()]} ${this.currentDate.getFullYear()}`;
@@ -762,7 +1013,7 @@ class AdvancedCalendar extends HTMLElement {
             const weekStart = this.getWeekStart(this.currentDate);
             const weekEnd = new Date(weekStart);
             weekEnd.setDate(weekEnd.getDate() + 6);
-            return `Week of ${months[weekStart.getMonth()]} ${weekStart.getDate()} - ${months[weekEnd.getMonth()]} ${weekEnd.getDate()}, ${weekStart.getFullYear()}`;
+            return `${this.t('weekOf')} ${months[weekStart.getMonth()]} ${weekStart.getDate()} - ${months[weekEnd.getMonth()]} ${weekEnd.getDate()}, ${weekStart.getFullYear()}`;
         } else {
             return `${days[this.currentDate.getDay()]}, ${months[this.currentDate.getMonth()]} ${this.currentDate.getDate()}, ${this.currentDate.getFullYear()}`;
         }
@@ -790,13 +1041,13 @@ class AdvancedCalendar extends HTMLElement {
         const daysToSubtract = (dayOfWeek - this.options.firstDayOfWeek + 7) % 7;
         startDate.setDate(startDate.getDate() - daysToSubtract);
 
-        const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-        const reorderedDays = [...days.slice(this.options.firstDayOfWeek), ...days.slice(0, this.options.firstDayOfWeek)];
+        const daysShort = this.t('daysShort');
+        const reorderedDays = [...daysShort.slice(this.options.firstDayOfWeek), ...daysShort.slice(0, this.options.firstDayOfWeek)];
 
         let html = '<div class="month-view">';
 
         if (this.options.showWeekNumbers) {
-            html += '<div class="week-number">Wk</div>';
+            html += `<div class="week-number">${this.t('week')}</div>`;
         }
 
         reorderedDays.forEach(day => {
@@ -863,13 +1114,15 @@ class AdvancedCalendar extends HTMLElement {
             days.push(day);
         }
 
+        const daysShort = this.t('daysShort');
+        const reorderedDaysShort = [...daysShort.slice(this.options.firstDayOfWeek), ...daysShort.slice(0, this.options.firstDayOfWeek)];
+
         let html = '<div class="week-view">';
         
         html += '<div class="time-slot header"></div>';
-        days.forEach(day => {
-            const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        days.forEach((day, index) => {
             const isToday = this.isSameDay(day, new Date());
-            html += `<div class="day-header" style="${isToday ? 'background: ' + this.options.colors.secondary : ''}">${dayNames[day.getDay()]} ${day.getDate()}</div>`;
+            html += `<div class="day-header" style="${isToday ? 'background: ' + this.options.colors.secondary : ''}">${reorderedDaysShort[index]} ${day.getDate()}</div>`;
         });
 
         hours.forEach(hour => {
@@ -910,15 +1163,18 @@ class AdvancedCalendar extends HTMLElement {
         const dayEvents = this.getEventsForDate(this.currentDate);
         const dayHolidays = this.getHolidaysForDate(this.currentDate);
         
+        const months = this.t('months');
+        const days = this.t('days');
+        
         let html = '<div class="day-view">';
-        html += `<div class="day-view-header">${this.currentDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</div>`;
+        html += `<div class="day-view-header">${days[this.currentDate.getDay()]}, ${months[this.currentDate.getMonth()]} ${this.currentDate.getDate()}, ${this.currentDate.getFullYear()}</div>`;
         
         if (dayEvents.length === 0 && dayHolidays.length === 0) {
             html += `<div class="no-events">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
                 </svg>
-                <div>No events scheduled for this day</div>
+                <div>${this.t('noEvents')}</div>
             </div>`;
         } else {
             html += '<div class="day-view-events">';
@@ -928,7 +1184,7 @@ class AdvancedCalendar extends HTMLElement {
                     html += `
                         <div class="day-event-card holiday-card">
                             <div class="event-title">🎉 ${holiday.name}</div>
-                            <div class="event-category">Public Holiday</div>
+                            <div class="event-category">${this.t('publicHoliday')}</div>
                             ${holiday.localName && holiday.localName !== holiday.name ? 
                                 `<div class="event-description">Local name: ${holiday.localName}</div>` : ''}
                         </div>
@@ -942,7 +1198,7 @@ class AdvancedCalendar extends HTMLElement {
                         <div class="event-title">${event.title}</div>
                         ${this.options.display.showEventTime && !event.isAllDay ? 
                             `<div class="event-time">⏰ ${event.startTime} - ${event.endTime}</div>` : 
-                            event.isAllDay ? '<div class="event-time">🌍 All Day Event</div>' : ''}
+                            event.isAllDay ? `<div class="event-time">🌍 ${this.t('allDay')}</div>` : ''}
                         ${this.options.display.showEventCategory ? 
                             `<div class="event-category">${event.category}</div>` : ''}
                         ${event.description ? 
@@ -1022,8 +1278,12 @@ class AdvancedCalendar extends HTMLElement {
         const modalContent = this.shadowRoot.getElementById('modalContent');
         
         const timeInfo = event.isAllDay ? 
-            '🌍 All Day Event' : 
+            `🌍 ${this.t('allDay')}` : 
             `⏰ ${event.startTime} - ${event.endTime}`;
+        
+        const months = this.t('months');
+        const days = this.t('days');
+        const eventDate = new Date(event.date);
         
         modalContent.innerHTML = `
             <div class="modal-header" style="background: linear-gradient(135deg, ${event.color}, ${this.adjustColor(event.color, -20)});">
@@ -1050,7 +1310,7 @@ class AdvancedCalendar extends HTMLElement {
                 ${event.description ? `
                 <div class="modal-section">
                     <div class="modal-section-title">
-                        📝 Description
+                        📝 ${this.t('description')}
                     </div>
                     <div class="modal-section-content rich-text-content">
                         ${event.description}
@@ -1060,15 +1320,10 @@ class AdvancedCalendar extends HTMLElement {
                 
                 <div class="modal-section">
                     <div class="modal-section-title">
-                        📅 Date
+                        📅 ${this.t('date')}
                     </div>
                     <div class="modal-section-content">
-                        ${new Date(event.date).toLocaleDateString('en-US', { 
-                            weekday: 'long', 
-                            year: 'numeric', 
-                            month: 'long', 
-                            day: 'numeric' 
-                        })}
+                        ${days[eventDate.getDay()]}, ${months[eventDate.getMonth()]} ${eventDate.getDate()}, ${eventDate.getFullYear()}
                     </div>
                 </div>
             </div>
@@ -1088,7 +1343,6 @@ class AdvancedCalendar extends HTMLElement {
         modal.classList.remove('show');
     }
 
-    // Helper to adjust color brightness
     adjustColor(color, amount) {
         const clamp = (num) => Math.min(Math.max(num, 0), 255);
         const num = parseInt(color.replace('#', ''), 16);
