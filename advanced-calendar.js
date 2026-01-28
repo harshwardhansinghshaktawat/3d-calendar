@@ -12,7 +12,7 @@ class AdvancedCalendar extends HTMLElement {
             firstDayOfWeek: 0,
             showWeekNumbers: true,
             showHolidays: true,
-            countryCode: 'US',
+            countryCode: 'IN',
             colors: {
                 primary: '#3498db',
                 secondary: '#2ecc71',
@@ -28,7 +28,6 @@ class AdvancedCalendar extends HTMLElement {
                 eventFontSize: 14
             },
             layout: {
-                height: 600,
                 cellPadding: 8,
                 borderRadius: 8
             },
@@ -61,7 +60,10 @@ class AdvancedCalendar extends HTMLElement {
         } else if (name === 'holidays-data' && newValue) {
             try {
                 this.holidays = JSON.parse(newValue);
-                console.log('Holidays loaded:', this.holidays.length);
+                console.log('Holidays loaded in custom element:', this.holidays.length);
+                if (this.holidays.length > 0) {
+                    console.log('First holiday:', this.holidays[0]);
+                }
                 this.render();
             } catch (e) {
                 console.error('Error parsing holidays data:', e);
@@ -128,9 +130,10 @@ class AdvancedCalendar extends HTMLElement {
                     border-radius: ${layout.borderRadius}px;
                     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
                     overflow: hidden;
-                    height: ${layout.height}px;
                     display: flex;
                     flex-direction: column;
+                    min-height: 600px;
+                    height: auto;
                     position: relative;
                 }
 
@@ -144,6 +147,7 @@ class AdvancedCalendar extends HTMLElement {
                     flex-wrap: wrap;
                     gap: 10px;
                     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+                    flex-shrink: 0;
                 }
 
                 .header-title {
@@ -239,7 +243,7 @@ class AdvancedCalendar extends HTMLElement {
 
                 .day-cell {
                     background: white;
-                    min-height: 100px;
+                    min-height: 120px;
                     padding: ${layout.cellPadding}px;
                     position: relative;
                     cursor: pointer;
@@ -400,6 +404,7 @@ class AdvancedCalendar extends HTMLElement {
                     display: flex;
                     flex-direction: column;
                     gap: 16px;
+                    padding-bottom: 20px;
                 }
 
                 .day-event-card {
@@ -668,7 +673,7 @@ class AdvancedCalendar extends HTMLElement {
                     }
 
                     .day-cell {
-                        min-height: 80px;
+                        min-height: 100px;
                         padding: 4px;
                     }
 
@@ -706,7 +711,7 @@ class AdvancedCalendar extends HTMLElement {
                     }
 
                     .day-cell {
-                        min-height: 60px;
+                        min-height: 80px;
                         padding: 2px;
                     }
 
