@@ -65,7 +65,13 @@ class AdvancedCalendar extends HTMLElement {
                 previous: 'Previous',
                 next: 'Next',
                 month: 'Month',
-                day: 'Day'
+                day: 'Day',
+                addToCalendar: 'Add to Calendar',
+                googleCalendar: 'Google Calendar',
+                appleCalendar: 'Apple Calendar',
+                outlookCalendar: 'Outlook Calendar',
+                yahooCalendar: 'Yahoo Calendar',
+                downloadICS: 'Download ICS File'
             },
             de: {
                 months: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
@@ -84,7 +90,13 @@ class AdvancedCalendar extends HTMLElement {
                 previous: 'Zurück',
                 next: 'Weiter',
                 month: 'Monat',
-                day: 'Tag'
+                day: 'Tag',
+                addToCalendar: 'Zum Kalender hinzufügen',
+                googleCalendar: 'Google Kalender',
+                appleCalendar: 'Apple Kalender',
+                outlookCalendar: 'Outlook Kalender',
+                yahooCalendar: 'Yahoo Kalender',
+                downloadICS: 'ICS Datei herunterladen'
             },
             fr: {
                 months: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
@@ -103,7 +115,13 @@ class AdvancedCalendar extends HTMLElement {
                 previous: 'Précédent',
                 next: 'Suivant',
                 month: 'Mois',
-                day: 'Jour'
+                day: 'Jour',
+                addToCalendar: 'Ajouter au calendrier',
+                googleCalendar: 'Google Agenda',
+                appleCalendar: 'Calendrier Apple',
+                outlookCalendar: 'Calendrier Outlook',
+                yahooCalendar: 'Calendrier Yahoo',
+                downloadICS: 'Télécharger fichier ICS'
             },
             es: {
                 months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
@@ -122,7 +140,13 @@ class AdvancedCalendar extends HTMLElement {
                 previous: 'Anterior',
                 next: 'Siguiente',
                 month: 'Mes',
-                day: 'Día'
+                day: 'Día',
+                addToCalendar: 'Añadir al calendario',
+                googleCalendar: 'Google Calendar',
+                appleCalendar: 'Calendario de Apple',
+                outlookCalendar: 'Calendario de Outlook',
+                yahooCalendar: 'Calendario de Yahoo',
+                downloadICS: 'Descargar archivo ICS'
             },
             pt: {
                 months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
@@ -141,7 +165,13 @@ class AdvancedCalendar extends HTMLElement {
                 previous: 'Anterior',
                 next: 'Próximo',
                 month: 'Mês',
-                day: 'Dia'
+                day: 'Dia',
+                addToCalendar: 'Adicionar ao calendário',
+                googleCalendar: 'Google Agenda',
+                appleCalendar: 'Calendário Apple',
+                outlookCalendar: 'Calendário Outlook',
+                yahooCalendar: 'Calendário Yahoo',
+                downloadICS: 'Baixar arquivo ICS'
             },
             it: {
                 months: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
@@ -160,7 +190,13 @@ class AdvancedCalendar extends HTMLElement {
                 previous: 'Precedente',
                 next: 'Successivo',
                 month: 'Mese',
-                day: 'Giorno'
+                day: 'Giorno',
+                addToCalendar: 'Aggiungi al calendario',
+                googleCalendar: 'Google Calendar',
+                appleCalendar: 'Calendario Apple',
+                outlookCalendar: 'Calendario Outlook',
+                yahooCalendar: 'Calendario Yahoo',
+                downloadICS: 'Scarica file ICS'
             },
             ru: {
                 months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
@@ -179,7 +215,13 @@ class AdvancedCalendar extends HTMLElement {
                 previous: 'Назад',
                 next: 'Вперед',
                 month: 'Месяц',
-                day: 'День'
+                day: 'День',
+                addToCalendar: 'Добавить в календарь',
+                googleCalendar: 'Google Календарь',
+                appleCalendar: 'Календарь Apple',
+                outlookCalendar: 'Календарь Outlook',
+                yahooCalendar: 'Календарь Yahoo',
+                downloadICS: 'Скачать ICS файл'
             },
             ja: {
                 months: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
@@ -198,7 +240,13 @@ class AdvancedCalendar extends HTMLElement {
                 previous: '前',
                 next: '次',
                 month: '月',
-                day: '日'
+                day: '日',
+                addToCalendar: 'カレンダーに追加',
+                googleCalendar: 'Googleカレンダー',
+                appleCalendar: 'Appleカレンダー',
+                outlookCalendar: 'Outlookカレンダー',
+                yahooCalendar: 'Yahooカレンダー',
+                downloadICS: 'ICSファイルをダウンロード'
             },
             zh: {
                 months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
@@ -217,7 +265,13 @@ class AdvancedCalendar extends HTMLElement {
                 previous: '上一个',
                 next: '下一个',
                 month: '月',
-                day: '日'
+                day: '日',
+                addToCalendar: '添加到日历',
+                googleCalendar: '谷歌日历',
+                appleCalendar: '苹果日历',
+                outlookCalendar: 'Outlook日历',
+                yahooCalendar: '雅虎日历',
+                downloadICS: '下载ICS文件'
             },
             ko: {
                 months: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
@@ -236,7 +290,13 @@ class AdvancedCalendar extends HTMLElement {
                 previous: '이전',
                 next: '다음',
                 month: '월',
-                day: '일'
+                day: '일',
+                addToCalendar: '캘린더에 추가',
+                googleCalendar: '구글 캘린더',
+                appleCalendar: '애플 캘린더',
+                outlookCalendar: '아웃룩 캘린더',
+                yahooCalendar: '야후 캘린더',
+                downloadICS: 'ICS 파일 다운로드'
             },
             ar: {
                 months: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'],
@@ -255,7 +315,13 @@ class AdvancedCalendar extends HTMLElement {
                 previous: 'السابق',
                 next: 'التالي',
                 month: 'شهر',
-                day: 'يوم'
+                day: 'يوم',
+                addToCalendar: 'إضافة إلى التقويم',
+                googleCalendar: 'تقويم جوجل',
+                appleCalendar: 'تقويم أبل',
+                outlookCalendar: 'تقويم Outlook',
+                yahooCalendar: 'تقويم ياهو',
+                downloadICS: 'تحميل ملف ICS'
             },
             vi: {
                 months: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
@@ -274,7 +340,13 @@ class AdvancedCalendar extends HTMLElement {
                 previous: 'Trước',
                 next: 'Tiếp theo',
                 month: 'Tháng',
-                day: 'Ngày'
+                day: 'Ngày',
+                addToCalendar: 'Thêm vào lịch',
+                googleCalendar: 'Google Calendar',
+                appleCalendar: 'Apple Calendar',
+                outlookCalendar: 'Outlook Calendar',
+                yahooCalendar: 'Yahoo Calendar',
+                downloadICS: 'Tải xuống tệp ICS'
             },
             id: {
                 months: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
@@ -293,7 +365,13 @@ class AdvancedCalendar extends HTMLElement {
                 previous: 'Sebelumnya',
                 next: 'Berikutnya',
                 month: 'Bulan',
-                day: 'Hari'
+                day: 'Hari',
+                addToCalendar: 'Tambahkan ke Kalender',
+                googleCalendar: 'Google Calendar',
+                appleCalendar: 'Apple Calendar',
+                outlookCalendar: 'Outlook Calendar',
+                yahooCalendar: 'Yahoo Calendar',
+                downloadICS: 'Unduh file ICS'
             }
         };
     }
@@ -315,9 +393,6 @@ class AdvancedCalendar extends HTMLElement {
             try {
                 this.holidays = JSON.parse(newValue);
                 console.log('✅ Holidays loaded:', this.holidays.length);
-                if (this.holidays.length > 0) {
-                    console.log('First holiday:', this.holidays[0]);
-                }
                 this.render();
             } catch (e) {
                 console.error('Error parsing holidays data:', e);
@@ -328,7 +403,6 @@ class AdvancedCalendar extends HTMLElement {
                 this.options = this.deepMerge(this.options, newOptions);
                 this.viewMode = this.options.viewMode;
                 this.language = this.options.language || 'en';
-                console.log('✅ Options updated - showHolidays:', this.options.showHolidays);
                 this.render();
             } catch (e) {
                 console.error('Error parsing calendar options:', e);
@@ -364,6 +438,134 @@ class AdvancedCalendar extends HTMLElement {
     t(key) {
         const lang = this.translations[this.language] || this.translations['en'];
         return lang[key] || this.translations['en'][key] || key;
+    }
+
+    // Generate ICS file content
+    generateICS(event) {
+        const eventDate = new Date(event.date);
+        const startDateTime = this.parseEventDateTime(event, eventDate, event.startTime);
+        const endDateTime = this.parseEventDateTime(event, eventDate, event.endTime);
+        
+        const formatICSDate = (date) => {
+            return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+        };
+        
+        const escapeICS = (str) => {
+            return str.replace(/\\/g, '\\\\')
+                      .replace(/;/g, '\\;')
+                      .replace(/,/g, '\\,')
+                      .replace(/\n/g, '\\n');
+        };
+        
+        const icsContent = [
+            'BEGIN:VCALENDAR',
+            'VERSION:2.0',
+            'PRODID:-//Advanced Calendar//EN',
+            'BEGIN:VEVENT',
+            `UID:${event.id}@advanced-calendar`,
+            `DTSTAMP:${formatICSDate(new Date())}`,
+            `DTSTART:${formatICSDate(startDateTime)}`,
+            `DTEND:${formatICSDate(endDateTime)}`,
+            `SUMMARY:${escapeICS(event.title)}`,
+            event.description ? `DESCRIPTION:${escapeICS(event.description.replace(/<[^>]*>/g, ''))}` : '',
+            event.category ? `CATEGORIES:${escapeICS(event.category)}` : '',
+            event.linkUrl ? `URL:${event.linkUrl}` : '',
+            'END:VEVENT',
+            'END:VCALENDAR'
+        ].filter(line => line).join('\r\n');
+        
+        return icsContent;
+    }
+    
+    parseEventDateTime(event, eventDate, timeString) {
+        if (event.isAllDay) {
+            const date = new Date(eventDate);
+            date.setHours(0, 0, 0, 0);
+            return date;
+        }
+        
+        const [time, period] = timeString.split(' ');
+        const [hours, minutes] = time.split(':').map(Number);
+        
+        let hour = hours;
+        if (period === 'PM' && hours !== 12) hour += 12;
+        if (period === 'AM' && hours === 12) hour = 0;
+        
+        const date = new Date(eventDate);
+        date.setHours(hour, minutes, 0, 0);
+        return date;
+    }
+    
+    // Add to Google Calendar
+    addToGoogleCalendar(event) {
+        const eventDate = new Date(event.date);
+        const startDateTime = this.parseEventDateTime(event, eventDate, event.startTime);
+        const endDateTime = this.parseEventDateTime(event, eventDate, event.endTime);
+        
+        const formatGoogleDate = (date) => {
+            return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+        };
+        
+        const params = new URLSearchParams({
+            action: 'TEMPLATE',
+            text: event.title,
+            dates: `${formatGoogleDate(startDateTime)}/${formatGoogleDate(endDateTime)}`,
+            details: event.description ? event.description.replace(/<[^>]*>/g, '') : '',
+            location: event.linkUrl || ''
+        });
+        
+        window.open(`https://calendar.google.com/calendar/render?${params.toString()}`, '_blank');
+    }
+    
+    // Add to Outlook Calendar
+    addToOutlookCalendar(event) {
+        const eventDate = new Date(event.date);
+        const startDateTime = this.parseEventDateTime(event, eventDate, event.startTime);
+        const endDateTime = this.parseEventDateTime(event, eventDate, event.endTime);
+        
+        const params = new URLSearchParams({
+            path: '/calendar/action/compose',
+            rru: 'addevent',
+            subject: event.title,
+            startdt: startDateTime.toISOString(),
+            enddt: endDateTime.toISOString(),
+            body: event.description ? event.description.replace(/<[^>]*>/g, '') : '',
+            location: event.linkUrl || ''
+        });
+        
+        window.open(`https://outlook.live.com/calendar/0/deeplink/compose?${params.toString()}`, '_blank');
+    }
+    
+    // Add to Yahoo Calendar
+    addToYahooCalendar(event) {
+        const eventDate = new Date(event.date);
+        const startDateTime = this.parseEventDateTime(event, eventDate, event.startTime);
+        const endDateTime = this.parseEventDateTime(event, eventDate, event.endTime);
+        
+        const formatYahooDate = (date) => {
+            return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+        };
+        
+        const params = new URLSearchParams({
+            v: '60',
+            title: event.title,
+            st: formatYahooDate(startDateTime),
+            et: formatYahooDate(endDateTime),
+            desc: event.description ? event.description.replace(/<[^>]*>/g, '') : '',
+            in_loc: event.linkUrl || ''
+        });
+        
+        window.open(`https://calendar.yahoo.com/?${params.toString()}`, '_blank');
+    }
+    
+    // Download ICS file
+    downloadICS(event) {
+        const icsContent = this.generateICS(event);
+        const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = `${event.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.ics`;
+        link.click();
     }
 
     render() {
@@ -865,6 +1067,99 @@ class AdvancedCalendar extends HTMLElement {
                     border-left: 4px solid ${colors.primary};
                 }
 
+                /* Add to Calendar Buttons */
+                .add-to-calendar-section {
+                    margin-top: 20px;
+                    padding-top: 20px;
+                    border-top: 2px solid ${colors.border};
+                }
+
+                .add-calendar-title {
+                    font-size: ${typography.eventFontSize + 2}px;
+                    font-weight: 600;
+                    color: ${colors.text};
+                    margin-bottom: 12px;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+
+                .calendar-buttons-grid {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 10px;
+                }
+
+                .calendar-btn {
+                    background: linear-gradient(135deg, ${colors.primary}, ${colors.secondary});
+                    color: white;
+                    border: none;
+                    padding: 12px 16px;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    font-size: ${typography.eventFontSize}px;
+                    font-weight: 500;
+                    font-family: ${typography.fontFamily};
+                    transition: all 0.3s ease;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+                }
+
+                .calendar-btn:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+                }
+
+                .calendar-btn:active {
+                    transform: translateY(0);
+                }
+
+                .calendar-btn svg {
+                    width: 18px;
+                    height: 18px;
+                    fill: white;
+                }
+
+                /* Custom Link Button */
+                .custom-link-button {
+                    background: linear-gradient(135deg, #e74c3c, #c0392b);
+                    color: white;
+                    border: none;
+                    padding: 14px 24px;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    font-size: ${typography.eventFontSize + 2}px;
+                    font-weight: 600;
+                    font-family: ${typography.fontFamily};
+                    transition: all 0.3s ease;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+                    text-decoration: none;
+                    margin-top: 15px;
+                    width: 100%;
+                }
+
+                .custom-link-button:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 6px 16px rgba(231, 76, 60, 0.4);
+                }
+
+                .custom-link-button:active {
+                    transform: translateY(0);
+                }
+
+                .custom-link-button svg {
+                    width: 20px;
+                    height: 20px;
+                    fill: white;
+                }
+
                 /* Rich text styling */
                 .rich-text-content {
                     line-height: 1.8;
@@ -959,6 +1254,10 @@ class AdvancedCalendar extends HTMLElement {
 
                     .modal-body {
                         padding: 20px;
+                    }
+
+                    .calendar-buttons-grid {
+                        grid-template-columns: 1fr;
                     }
                 }
 
@@ -1335,13 +1634,77 @@ class AdvancedCalendar extends HTMLElement {
                         ${days[eventDate.getDay()]}, ${months[eventDate.getMonth()]} ${eventDate.getDate()}, ${eventDate.getFullYear()}
                     </div>
                 </div>
+
+                ${event.linkUrl ? `
+                <div class="modal-section">
+                    <a href="${event.linkUrl}" target="_blank" rel="noopener noreferrer" class="custom-link-button">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>
+                        </svg>
+                        ${event.linkText || 'Learn More'}
+                    </a>
+                </div>
+                ` : ''}
+
+                <div class="add-to-calendar-section">
+                    <div class="add-calendar-title">
+                        📆 ${this.t('addToCalendar')}
+                    </div>
+                    <div class="calendar-buttons-grid">
+                        <button class="calendar-btn" id="addToGoogle">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
+                            </svg>
+                            ${this.t('googleCalendar')}
+                        </button>
+                        <button class="calendar-btn" id="addToOutlook">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            ${this.t('outlookCalendar')}
+                        </button>
+                        <button class="calendar-btn" id="addToYahoo">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H6v-1c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1z"/>
+                            </svg>
+                            ${this.t('yahooCalendar')}
+                        </button>
+                        <button class="calendar-btn" id="downloadICS">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M19 12v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2zm-6 .67l2.59-2.58L17 11.5l-5 5-5-5 1.41-1.41L11 12.67V3h2z"/>
+                            </svg>
+                            ${this.t('downloadICS')}
+                        </button>
+                    </div>
+                </div>
             </div>
         `;
         
-        // Attach close button listener
+        // Attach event listeners
         const closeBtn = modalContent.querySelector('#modalCloseBtn');
         if (closeBtn) {
             closeBtn.addEventListener('click', () => this.closeEventModal());
+        }
+        
+        // Add to calendar buttons
+        const addToGoogle = modalContent.querySelector('#addToGoogle');
+        if (addToGoogle) {
+            addToGoogle.addEventListener('click', () => this.addToGoogleCalendar(event));
+        }
+        
+        const addToOutlook = modalContent.querySelector('#addToOutlook');
+        if (addToOutlook) {
+            addToOutlook.addEventListener('click', () => this.addToOutlookCalendar(event));
+        }
+        
+        const addToYahoo = modalContent.querySelector('#addToYahoo');
+        if (addToYahoo) {
+            addToYahoo.addEventListener('click', () => this.addToYahooCalendar(event));
+        }
+        
+        const downloadICS = modalContent.querySelector('#downloadICS');
+        if (downloadICS) {
+            downloadICS.addEventListener('click', () => this.downloadICS(event));
         }
         
         modal.classList.add('show');
@@ -1408,7 +1771,6 @@ class AdvancedCalendar extends HTMLElement {
                 return false;
             }
             
-            // Parse the holiday date - Nager.Date format: YYYY-MM-DD
             const holidayDate = new Date(holiday.date + 'T12:00:00');
             
             return this.isSameDay(holidayDate, date);
