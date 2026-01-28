@@ -67,120 +67,6 @@ class AdvancedCalendar extends HTMLElement {
                 month: 'Month',
                 day: 'Day'
             },
-            hi: {
-                months: ['जनवरी', 'फ़रवरी', 'मार्च', 'अप्रैल', 'मई', 'जून', 'जुलाई', 'अगस्त', 'सितंबर', 'अक्टूबर', 'नवंबर', 'दिसंबर'],
-                monthsShort: ['जन', 'फ़र', 'मार्च', 'अप्रैल', 'मई', 'जून', 'जुलाई', 'अग', 'सित', 'अक्टू', 'नव', 'दिस'],
-                days: ['रविवार', 'सोमवार', 'मंगलवार', 'बुधवार', 'गुरुवार', 'शुक्रवार', 'शनिवार'],
-                daysShort: ['रवि', 'सोम', 'मंगल', 'बुध', 'गुरु', 'शुक्र', 'शनि'],
-                today: 'आज',
-                week: 'सप्ताह',
-                allDay: 'पूरे दिन',
-                noEvents: 'इस दिन के लिए कोई कार्यक्रम निर्धारित नहीं है',
-                description: 'विवरण',
-                category: 'श्रेणी',
-                date: 'तारीख',
-                publicHoliday: 'सार्वजनिक अवकाश',
-                weekOf: 'सप्ताह',
-                previous: 'पिछला',
-                next: 'अगला',
-                month: 'महीना',
-                day: 'दिन'
-            },
-            th: {
-                months: ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'],
-                monthsShort: ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'],
-                days: ['วันอาทิตย์', 'วันจันทร์', 'วันอังคาร', 'วันพุธ', 'วันพฤหัสบดี', 'วันศุกร์', 'วันเสาร์'],
-                daysShort: ['อา', 'จ', 'อ', 'พ', 'พฤ', 'ศ', 'ส'],
-                today: 'วันนี้',
-                week: 'สัปดาห์',
-                allDay: 'ทั้งวัน',
-                noEvents: 'ไม่มีกิจกรรมในวันนี้',
-                description: 'รายละเอียด',
-                category: 'หมวดหมู่',
-                date: 'วันที่',
-                publicHoliday: 'วันหยุดราชการ',
-                weekOf: 'สัปดาห์ที่',
-                previous: 'ก่อนหน้า',
-                next: 'ถัดไป',
-                month: 'เดือน',
-                day: 'วัน'
-            },
-            ms: {
-                months: ['Januari', 'Februari', 'Mac', 'April', 'Mei', 'Jun', 'Julai', 'Ogos', 'September', 'Oktober', 'November', 'Disember'],
-                monthsShort: ['Jan', 'Feb', 'Mac', 'Apr', 'Mei', 'Jun', 'Jul', 'Ogos', 'Sep', 'Okt', 'Nov', 'Dis'],
-                days: ['Ahad', 'Isnin', 'Selasa', 'Rabu', 'Khamis', 'Jumaat', 'Sabtu'],
-                daysShort: ['Ahd', 'Isn', 'Sel', 'Rab', 'Kha', 'Jum', 'Sab'],
-                today: 'Hari Ini',
-                week: 'Minggu',
-                allDay: 'Sepanjang Hari',
-                noEvents: 'Tiada acara dijadualkan untuk hari ini',
-                description: 'Penerangan',
-                category: 'Kategori',
-                date: 'Tarikh',
-                publicHoliday: 'Cuti Umum',
-                weekOf: 'Minggu',
-                previous: 'Sebelumnya',
-                next: 'Seterusnya',
-                month: 'Bulan',
-                day: 'Hari'
-            },
-            ja: {
-                months: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-                monthsShort: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-                days: ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'],
-                daysShort: ['日', '月', '火', '水', '木', '金', '土'],
-                today: '今日',
-                week: '週',
-                allDay: '終日',
-                noEvents: 'この日の予定はありません',
-                description: '説明',
-                category: 'カテゴリー',
-                date: '日付',
-                publicHoliday: '祝日',
-                weekOf: '週',
-                previous: '前',
-                next: '次',
-                month: '月',
-                day: '日'
-            },
-            zh: {
-                months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
-                monthsShort: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-                days: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
-                daysShort: ['日', '一', '二', '三', '四', '五', '六'],
-                today: '今天',
-                week: '周',
-                allDay: '全天',
-                noEvents: '今天没有安排活动',
-                description: '描述',
-                category: '类别',
-                date: '日期',
-                publicHoliday: '公共假期',
-                weekOf: '周',
-                previous: '上一个',
-                next: '下一个',
-                month: '月',
-                day: '日'
-            },
-            fr: {
-                months: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
-                monthsShort: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'],
-                days: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
-                daysShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
-                today: 'Aujourd\'hui',
-                week: 'Sem',
-                allDay: 'Toute la journée',
-                noEvents: 'Aucun événement prévu pour ce jour',
-                description: 'Description',
-                category: 'Catégorie',
-                date: 'Date',
-                publicHoliday: 'Jour férié',
-                weekOf: 'Semaine du',
-                previous: 'Précédent',
-                next: 'Suivant',
-                month: 'Mois',
-                day: 'Jour'
-            },
             de: {
                 months: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
                 monthsShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
@@ -200,43 +86,24 @@ class AdvancedCalendar extends HTMLElement {
                 month: 'Monat',
                 day: 'Tag'
             },
-            ru: {
-                months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-                monthsShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
-                days: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
-                daysShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-                today: 'Сегодня',
-                week: 'Нед',
-                allDay: 'Весь день',
-                noEvents: 'На этот день нет запланированных событий',
-                description: 'Описание',
-                category: 'Категория',
-                date: 'Дата',
-                publicHoliday: 'Государственный праздник',
-                weekOf: 'Неделя',
-                previous: 'Назад',
-                next: 'Вперед',
-                month: 'Месяц',
-                day: 'День'
-            },
-            ar: {
-                months: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'],
-                monthsShort: ['ينا', 'فبر', 'مار', 'أبر', 'ماي', 'يون', 'يول', 'أغس', 'سبت', 'أكت', 'نوف', 'ديس'],
-                days: ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
-                daysShort: ['أحد', 'إثن', 'ثلا', 'أرب', 'خمي', 'جمع', 'سبت'],
-                today: 'اليوم',
-                week: 'أسبوع',
-                allDay: 'طوال اليوم',
-                noEvents: 'لا توجد أحداث مجدولة لهذا اليوم',
-                description: 'وصف',
-                category: 'فئة',
-                date: 'تاريخ',
-                publicHoliday: 'عطلة رسمية',
-                weekOf: 'أسبوع',
-                previous: 'السابق',
-                next: 'التالي',
-                month: 'شهر',
-                day: 'يوم'
+            fr: {
+                months: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+                monthsShort: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'],
+                days: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+                daysShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+                today: 'Aujourd\'hui',
+                week: 'Sem',
+                allDay: 'Toute la journée',
+                noEvents: 'Aucun événement prévu pour ce jour',
+                description: 'Description',
+                category: 'Catégorie',
+                date: 'Date',
+                publicHoliday: 'Jour férié',
+                weekOf: 'Semaine du',
+                previous: 'Précédent',
+                next: 'Suivant',
+                month: 'Mois',
+                day: 'Jour'
             },
             es: {
                 months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
@@ -295,6 +162,63 @@ class AdvancedCalendar extends HTMLElement {
                 month: 'Mese',
                 day: 'Giorno'
             },
+            ru: {
+                months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+                monthsShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+                days: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
+                daysShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+                today: 'Сегодня',
+                week: 'Нед',
+                allDay: 'Весь день',
+                noEvents: 'На этот день нет запланированных событий',
+                description: 'Описание',
+                category: 'Категория',
+                date: 'Дата',
+                publicHoliday: 'Государственный праздник',
+                weekOf: 'Неделя',
+                previous: 'Назад',
+                next: 'Вперед',
+                month: 'Месяц',
+                day: 'День'
+            },
+            ja: {
+                months: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+                monthsShort: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+                days: ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'],
+                daysShort: ['日', '月', '火', '水', '木', '金', '土'],
+                today: '今日',
+                week: '週',
+                allDay: '終日',
+                noEvents: 'この日の予定はありません',
+                description: '説明',
+                category: 'カテゴリー',
+                date: '日付',
+                publicHoliday: '祝日',
+                weekOf: '週',
+                previous: '前',
+                next: '次',
+                month: '月',
+                day: '日'
+            },
+            zh: {
+                months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+                monthsShort: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+                days: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+                daysShort: ['日', '一', '二', '三', '四', '五', '六'],
+                today: '今天',
+                week: '周',
+                allDay: '全天',
+                noEvents: '今天没有安排活动',
+                description: '描述',
+                category: '类别',
+                date: '日期',
+                publicHoliday: '公共假期',
+                weekOf: '周',
+                previous: '上一个',
+                next: '下一个',
+                month: '月',
+                day: '日'
+            },
             ko: {
                 months: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
                 monthsShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
@@ -313,6 +237,25 @@ class AdvancedCalendar extends HTMLElement {
                 next: '다음',
                 month: '월',
                 day: '일'
+            },
+            ar: {
+                months: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'],
+                monthsShort: ['ينا', 'فبر', 'مار', 'أبر', 'ماي', 'يون', 'يول', 'أغس', 'سبت', 'أكت', 'نوف', 'ديس'],
+                days: ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+                daysShort: ['أحد', 'إثن', 'ثلا', 'أرب', 'خمي', 'جمع', 'سبت'],
+                today: 'اليوم',
+                week: 'أسبوع',
+                allDay: 'طوال اليوم',
+                noEvents: 'لا توجد أحداث مجدولة لهذا اليوم',
+                description: 'وصف',
+                category: 'فئة',
+                date: 'تاريخ',
+                publicHoliday: 'عطلة رسمية',
+                weekOf: 'أسبوع',
+                previous: 'السابق',
+                next: 'التالي',
+                month: 'شهر',
+                day: 'يوم'
             },
             vi: {
                 months: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
@@ -363,7 +306,7 @@ class AdvancedCalendar extends HTMLElement {
         if (name === 'events-data' && newValue) {
             try {
                 this.events = JSON.parse(newValue);
-                console.log('✅ Events loaded in custom element:', this.events.length);
+                console.log('✅ Events loaded:', this.events.length);
                 this.render();
             } catch (e) {
                 console.error('Error parsing events data:', e);
@@ -371,10 +314,9 @@ class AdvancedCalendar extends HTMLElement {
         } else if (name === 'holidays-data' && newValue) {
             try {
                 this.holidays = JSON.parse(newValue);
-                console.log('✅ Holidays loaded in custom element:', this.holidays.length);
+                console.log('✅ Holidays loaded:', this.holidays.length);
                 if (this.holidays.length > 0) {
-                    console.log('First holiday in custom element:', this.holidays[0]);
-                    console.log('Sample holiday dates:', this.holidays.slice(0, 5).map(h => h.date));
+                    console.log('First holiday:', this.holidays[0]);
                 }
                 this.render();
             } catch (e) {
@@ -386,7 +328,7 @@ class AdvancedCalendar extends HTMLElement {
                 this.options = this.deepMerge(this.options, newOptions);
                 this.viewMode = this.options.viewMode;
                 this.language = this.options.language || 'en';
-                console.log('✅ Calendar options updated - showHolidays:', this.options.showHolidays);
+                console.log('✅ Options updated - showHolidays:', this.options.showHolidays);
                 this.render();
             } catch (e) {
                 console.error('Error parsing calendar options:', e);
@@ -567,7 +509,7 @@ class AdvancedCalendar extends HTMLElement {
                     position: relative;
                     cursor: pointer;
                     transition: all 0.3s ease;
-                    overflow: hidden;
+                    overflow: visible;
                 }
 
                 .day-cell:hover {
@@ -636,9 +578,9 @@ class AdvancedCalendar extends HTMLElement {
                     color: ${colors.holiday};
                     font-weight: 600;
                     margin-top: 2px;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
+                    white-space: normal;
+                    word-wrap: break-word;
+                    line-height: 1.3;
                 }
 
                 .event-dot-container {
@@ -663,9 +605,9 @@ class AdvancedCalendar extends HTMLElement {
                     margin-top: 4px;
                     border-radius: 4px;
                     font-size: ${typography.eventFontSize - 2}px;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
+                    white-space: normal;
+                    word-wrap: break-word;
+                    line-height: 1.3;
                     cursor: pointer;
                     transition: all 0.2s ease;
                     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
@@ -1466,12 +1408,10 @@ class AdvancedCalendar extends HTMLElement {
                 return false;
             }
             
-            // Parse the holiday date (format: YYYY-MM-DD)
-            // Add time to avoid timezone issues
+            // Parse the holiday date - Nager.Date format: YYYY-MM-DD
             const holidayDate = new Date(holiday.date + 'T12:00:00');
-            const checkDate = new Date(date);
             
-            return this.isSameDay(holidayDate, checkDate);
+            return this.isSameDay(holidayDate, date);
         });
         
         return matchingHolidays;
